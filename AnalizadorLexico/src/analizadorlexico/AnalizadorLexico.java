@@ -42,8 +42,15 @@ public class AnalizadorLexico {
    
         lexico lex = new lexico();
         array = lex.crearTokens(array);
-        for (int i=0; i<lex.TXT.size();i++){
-            System.out.println(lex.TXT.get(i));
+        for (int i=0; i<array.size();i++){
+            System.out.println(array.get(i));
+        }
+        
+        AnalizadorSintactico compilacion = new AnalizadorSintactico();
+        if(compilacion.Compilar(array)){
+            System.out.println("Compilacion exitosa");
+        }else{
+            System.out.println("Fallo en la compilacion");
         }
     }
 }

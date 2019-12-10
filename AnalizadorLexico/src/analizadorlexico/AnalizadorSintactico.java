@@ -19,22 +19,22 @@ public class AnalizadorSintactico {
     
     public boolean Compilar(ArrayList<String> tokens){
         for(int i=0; i<tokens.size();i++){
-            if(tokens.get(i)== "PROGRAMA" || tokens.get(i)== "SI" || tokens.get(i)== "ENTONCES" 
-               || tokens.get(i)== "REPITE" || tokens.get(i)== "VECES"){
+            if(tokens.get(i).equals("PROGRAMA") || tokens.get(i).equals("SI") || tokens.get(i).equals("ENTONCES") 
+               || tokens.get(i).equals("REPITE") || tokens.get(i).equals("VECES")){
                 pila.push(tokens.get(i));
             }else{
-                if(tokens.get(i) == "FINPROG"){
-                    if(pila.top()== "PROGRAMA"){
+                if(tokens.get(i).equals("FINPROG")){
+                    if(pila.top().equals("PROGRAMA")){
                         pila.pop();
                     }else{
                         return false;
                     }
                 }
                 
-                if(tokens.get(i) == "FINREP"){
-                    if(pila.top()== "VECES"){
+                if(tokens.get(i).equals("FINREP")){
+                    if(pila.top().equals("VECES")){
                         pila.pop();
-                        if(pila.top() == "REPITE"){
+                        if(pila.top().equals("REPITE")){
                             pila.pop();
                         }else{
                             return false;
@@ -44,12 +44,12 @@ public class AnalizadorSintactico {
                     }
                 }
                 
-                if(tokens.get(i) == "FINSI"){
-                    if(pila.top()== "SINO"){
+                if(tokens.get(i).equals("FINSI")){
+                    if(pila.top().equals("SINO")){
                         pila.pop();
-                        if(pila.top() == "ENTONCES"){
+                        if(pila.top().equals("ENTONCES")){
                             pila.pop();
-                            if(pila.top() == "SI"){
+                            if(pila.top().equals("SI")){
                                 pila.pop();
                             }else{
                                 return false;
@@ -59,9 +59,9 @@ public class AnalizadorSintactico {
                         }
                         
                     }else{
-                        if(pila.top() == "ENTONCES"){
+                        if(pila.top().equals("ENTONCES")){
                             pila.pop();
-                            if(pila.top() == "SI"){
+                            if(pila.top().equals("SI")){
                                 pila.pop();
                             }else{
                                 return false;
@@ -73,7 +73,10 @@ public class AnalizadorSintactico {
                 }
             }
         }
-        return true;
+        if(pila.isEmpty())
+            return true;
+        else
+           return false;
     }
     
     private boolean isVal(String token){
