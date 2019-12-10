@@ -37,7 +37,13 @@ public class AnalizadorLexico {
             String linea = lectura.nextLine();
             array.add(linea);
         }
-        
+        //C:\Users\arman\Desktop\analizador\ProgramaMio.txt
         l1.setArray(array);
+   
+        lexico lex = new lexico();
+        array = lex.crearTokens(array);
+        for (int i=0; i<lex.TXT.size();i++){
+            System.out.println(lex.TXT.get(i));
+        }
     }
 }
