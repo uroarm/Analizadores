@@ -22,7 +22,7 @@ public class AnalizadorLexico {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
         
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ruta: ");
@@ -42,9 +42,7 @@ public class AnalizadorLexico {
    
         lexico lex = new lexico();
         array = lex.crearTokens(array);
-        for (int i=0; i<array.size();i++){
-            System.out.println(array.get(i));
-        }
+       
         
         AnalizadorSintactico compilacion = new AnalizadorSintactico();
         if(compilacion.Compilar(array)){
@@ -52,5 +50,8 @@ public class AnalizadorLexico {
         }else{
             System.out.println("Fallo en la compilacion");
         }
+        
+        impresionArchivo imp = new impresionArchivo();
+        imp.imprimir(array, lex);
     }
 }
