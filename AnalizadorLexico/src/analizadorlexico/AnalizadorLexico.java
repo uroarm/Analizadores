@@ -23,14 +23,10 @@ public class AnalizadorLexico {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        //ArrayList<String> programa = new ArrayList <String>();
-        //lexico l = new lexico();
-        //programa = l.obtenerArchivo();
         
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ruta: ");
         String ruta = scanner.nextLine();
-        //leerArchivo.leerArchivo(ruta);
         
         leerArchivo l1 = new leerArchivo();
         
@@ -39,14 +35,9 @@ public class AnalizadorLexico {
         Scanner lectura = new Scanner(archivo);
 	while (lectura.hasNextLine()) {
             String linea = lectura.nextLine();
-            //System.out.println(linea);
             array.add(linea);
         }
         
         l1.setArray(array);
-        //l1.getArray();
-        //for(int i=0;i<array.size();i++){
-            //System.out.println(l1.getArray().get(i));
-        //}
     }
 }
