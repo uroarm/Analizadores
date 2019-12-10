@@ -50,7 +50,8 @@ public class impresionArchivo {
         palabraescritura .newLine();
         palabras.write("\n");
         for(int i=0;i<lex.VAL.size();i++){
-            palabras.write(lex.VAL.get(i));
+            Integer outputDecimal = Integer.parseInt(lex.VAL.get(i).substring(2), 16);
+            palabras.write(lex.VAL.get(i) + ", " + outputDecimal);
             palabraescritura .newLine();
             palabras.write("\n");
             
